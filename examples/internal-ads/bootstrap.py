@@ -29,6 +29,9 @@ previous = os.umask(0o077)
 try:
     (root / ".env").write_text("".join(f"{k}={v}\n" for k, v in values.items()))
     (root / "accounts.json").write_text((root / "accounts.example.json").read_text())
+    # The manifest contains IDs/policy only and must be readable by the non-root
+    # Docker UID. Platform credentials remain in the private .env, never here.
+    (root / "accounts.json").chmod(0o644)
 finally:
     os.umask(previous)
 print("Created .env and accounts.json. Keys are private in .env. Writes are disabled.")

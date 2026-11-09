@@ -27,3 +27,21 @@ jobs:
       - run: python -m pytest -q
       - run: pip check
       - run: docker build -t internal-ads:test .
+      - name: Start the demo stack and verify authenticated API
+        run: |
+          python bootstrap.py --demo
+          docker compose up -d --build --wait --wait-timeout 60
+          python - <<'PYTHON'
+          import json
+          import urllib.request
+          from dotenv import dotenv_values
+          cfg = dotenv_values('.env')
+          url = 'http://127.0.0.1:8787/api/v1/connections'
+          request = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + cfg['ADS_API_KEY']})
+          with urllib.request.urlopen(request) as response:
+              data = json.load(response)
+          assert data['mode'] == 'demo' and len(data['accounts']) == 2
+          PYTHON
+      - name: Stop the demo stack
+        if: always()
+        run: docker compose down -v

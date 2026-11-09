@@ -193,6 +193,10 @@ From this directory after configuring `.env` and accounts:
 docker compose up -d --build
 ```
 
+The account manifest contains no credentials. Bootstrap makes it readable by the
+container; for an existing manifest, run `chmod 644 accounts.json`. The private
+`.env` stays mode 600 and is loaded by Compose.
+
 The container runs as a non-root user, binds only to loopback, and keeps SQLite
 and encrypted tokens in the `ads-data` volume. Back up the volume **and**
 `ADS_ENCRYPTION_KEY`; losing the key makes saved tokens unreadable. Do not run
