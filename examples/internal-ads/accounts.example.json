@@ -1,0 +1,4 @@
+[
+  {"alias":"bindee-meta","platform":"meta","account_id":"1234567890","currency":"INR","minor_units":2,"daily_budget_limit":"1000","credentials_prefix":"BINDEE_META"},
+  {"alias":"labs-google","platform":"google","account_id":"1234567890","currency":"INR","minor_units":2,"daily_budget_limit":"1000","credentials_prefix":"LABS_GOOGLE"}
+]

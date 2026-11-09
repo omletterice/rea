@@ -1,0 +1,10 @@
+{
+  "idempotency_key": "bindee-meta-traffic-v1",
+  "draft": {
+    "account": "bindee-meta", "kind": "meta_traffic", "name": "Bindee · Colour, every day",
+    "daily_budget": "500", "final_url": "https://YOUR-STOREFRONT.example/shop",
+    "page_id": "1234567890", "image_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "primary_text": "For the girl who wears every side of herself.",
+    "headlines": ["A little colour. A lot of you."], "countries": ["IN"], "age_min": 18, "age_max": 35
+  }
+}

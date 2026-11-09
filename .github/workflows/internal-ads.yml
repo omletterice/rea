@@ -1,0 +1,29 @@
+name: Internal Ads
+on:
+  pull_request:
+    paths:
+      - 'examples/internal-ads/**'
+      - '.github/workflows/internal-ads.yml'
+  push:
+    paths:
+      - 'examples/internal-ads/**'
+      - '.github/workflows/internal-ads.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/internal-ads
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: examples/internal-ads/requirements.lock
+      - run: pip install -r requirements.lock && pip install '.[test]'
+      - run: python -m pytest -q
+      - run: pip check
+      - run: docker build -t internal-ads:test .

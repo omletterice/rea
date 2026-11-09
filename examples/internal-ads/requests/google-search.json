@@ -1,0 +1,11 @@
+{
+  "idempotency_key": "labs-google-search-v1",
+  "draft": {
+    "account": "labs-google", "kind": "google_search", "name": "Bindee · Search test",
+    "daily_budget": "500", "final_url": "https://YOUR-STOREFRONT.example/shop",
+    "cpc_bid": "10", "keywords": ["colourful bangles", "buy bangles online"],
+    "headlines": ["Colour For Your Everyday", "Meet Your Next Favourite", "Shop Bindee Bangles"],
+    "descriptions": ["Every colour has a story. Find the bangles that feel like you.", "A little colour for your everyday. Discover Bindee online."],
+    "location_ids": ["2356"], "language_ids": ["1000"]
+  }
+}

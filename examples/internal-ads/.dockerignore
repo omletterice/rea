@@ -1,0 +1,5 @@
+*
+!requirements.lock
+!internal_ads/
+!internal_ads/**
+internal_ads/__pycache__/
